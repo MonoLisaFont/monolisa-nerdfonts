@@ -10,19 +10,6 @@ redistribute generated fonts unless your MonoLisa license allows it.
 
 Place the MonoLisa Code `.ttf` files in `input/`.
 
-The current local input set is:
-
-- `MonoLisaCode-Black.ttf`
-- `MonoLisaCode-Bold.ttf`
-- `MonoLisaCode-ExtraBold.ttf`
-- `MonoLisaCode-ExtraLight.ttf`
-- `MonoLisaCode-Hairline.ttf`
-- `MonoLisaCode-Light.ttf`
-- `MonoLisaCode-Medium.ttf`
-- `MonoLisaCode-Regular.ttf`
-- `MonoLisaCode-SemiBold.ttf`
-- `MonoLisaCode-Thin.ttf`
-
 `input/` is intentionally ignored by git.
 
 ## Build
