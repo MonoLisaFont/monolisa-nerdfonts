@@ -4,8 +4,9 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 INPUT_DIR="${INPUT_DIR:-"$ROOT_DIR/input"}"
 OUTPUT_DIR="${OUTPUT_DIR:-"$ROOT_DIR/output"}"
-IMAGE="${NERD_FONTS_PATCHER_IMAGE:-nerdfonts/patcher}"
+IMAGE="${NERD_FONTS_PATCHER_IMAGE:-nerdfonts/patcher@sha256:5d7ffcb702a7c14eeda9b107f9dadd6d250dedf9d1f0993d966b4fd8337c47a6}"
 LOG_FILE="${PATCH_LOG:-"$OUTPUT_DIR/patch.log"}"
+CLEAN="${PATCH_CLEAN:-0}"
 VERBOSE="${PATCH_VERBOSE:-0}"
 
 if ! command -v docker >/dev/null 2>&1; then
@@ -24,6 +25,11 @@ if ! find "$INPUT_DIR" -maxdepth 1 -type f \( -name '*.ttf' -o -name '*.otf' \) 
 fi
 
 mkdir -p "$OUTPUT_DIR"
+mkdir -p "$(dirname "$LOG_FILE")"
+
+if [ "$CLEAN" = "1" ]; then
+  find "$OUTPUT_DIR" -maxdepth 1 -type f \( -name '*.ttf' -o -name '*.otf' \) -delete
+fi
 
 WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/monolisa-nerdfonts.XXXXXX")"
 trap 'rm -rf "$WORK_DIR"' EXIT
