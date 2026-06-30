@@ -37,7 +37,7 @@ PATCH_CLEAN=1 ./scripts/patch.sh
 To pass extra options to the Nerd Fonts patcher, append them:
 
 ```sh
-./scripts/patch.sh --adjust-line-height
+./scripts/patch.sh --debug
 ```
 
 The default options are:
@@ -46,6 +46,21 @@ The default options are:
 - `--careful`: avoid overwriting existing glyphs in the source font.
 - `--quiet`: suppress routine glyph-copy logging.
 - `--no-progressbars`: keep build logs readable.
+
+Common upstream patcher options:
+
+- `--debug`: print more detail when diagnosing naming or patching issues.
+- `--dry`: check patcher naming without writing generated fonts.
+- `--adjust-line-height`: adjust line heights to center Powerline separators.
+- `--mono`: create monospaced output and single-width added glyphs.
+- `--single-width-glyphs`: keep the source font metrics but make added glyphs
+  single-width.
+- `--variable-width-glyphs`: avoid adjusting glyph advance widths.
+- `--extension ttf|otf`: choose the generated font file type.
+
+See the upstream
+[`font-patcher`](https://github.com/ryanoasis/nerd-fonts/blob/master/font-patcher)
+source for the complete flag list.
 
 Set `PATCH_VERBOSE=1` when you want to see the raw FontForge and patcher output:
 
