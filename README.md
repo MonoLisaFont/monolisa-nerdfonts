@@ -113,8 +113,18 @@ docker run --rm \
 rm -rf "$work_dir"
 ```
 
-Pull a fresh patcher image when you want to update to the latest Nerd Fonts
-patcher:
+Check whether the pinned patcher image differs from the latest upstream image:
+
+```sh
+./scripts/check-patcher-update.sh
+```
+
+The check pulls `nerdfonts/patcher:latest`, compares its digest with the pinned
+digest in `scripts/patch.sh`, and prints a test command if a newer image is
+available. Normal builds do not check this automatically so they remain
+reproducible and do not require network access.
+
+You can also pull a fresh patcher image manually:
 
 ```sh
 docker pull nerdfonts/patcher:latest
