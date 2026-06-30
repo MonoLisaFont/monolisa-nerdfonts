@@ -23,6 +23,12 @@ override it.
 ./scripts/patch.sh
 ```
 
+To see the wrapper inputs, outputs, environment variables, and docs:
+
+```sh
+./scripts/patch.sh --help
+```
+
 Generated fonts are written to `output/`, which is also ignored by git.
 The wrapper keeps successful builds quiet and writes the full upstream patcher
 log to `output/patch.log`.
