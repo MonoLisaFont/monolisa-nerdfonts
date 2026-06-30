@@ -29,6 +29,12 @@ To see the wrapper inputs, outputs, environment variables, and docs:
 ./scripts/patch.sh --help
 ```
 
+To check local prerequisites without running the patcher:
+
+```sh
+./scripts/doctor.sh
+```
+
 Generated fonts are written to `output/`, which is also ignored by git.
 The wrapper keeps successful builds quiet and writes the full upstream patcher
 log to `output/patch.log`.

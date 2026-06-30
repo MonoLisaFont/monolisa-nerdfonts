@@ -2,6 +2,16 @@
 
 ## Troubleshooting
 
+Run the local doctor first when setup is unclear:
+
+```sh
+./scripts/doctor.sh
+```
+
+It checks Docker, input fonts, output/log paths, and whether the pinned patcher
+image is already available locally. It does not run the patcher, pull images, or
+write generated fonts.
+
 Successful builds can still produce a noisy `output/patch.log`. FontForge often
 reports ignored source tables and Nerd Fonts icon glyph names that do not match
 their private-use Unicode codepoints. These warnings are expected for this
