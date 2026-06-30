@@ -22,6 +22,8 @@ It wraps FontForge and the current Nerd Fonts glyph sources.
 ```
 
 Generated fonts are written to `output/`, which is also ignored by git.
+The wrapper keeps successful builds quiet and writes the full upstream patcher
+log to `output/patch.log`.
 
 To pass extra options to the Nerd Fonts patcher, append them:
 
@@ -35,6 +37,12 @@ The default options are:
 - `--careful`: avoid overwriting existing glyphs in the source font.
 - `--quiet`: suppress routine glyph-copy logging.
 - `--no-progressbars`: keep build logs readable.
+
+Set `PATCH_VERBOSE=1` when you want to see the raw FontForge and patcher output:
+
+```sh
+PATCH_VERBOSE=1 ./scripts/patch.sh
+```
 
 The script patches temporary copies of the input fonts. This keeps the
 commercial source files in `input/` untouched while still allowing FontForge to
